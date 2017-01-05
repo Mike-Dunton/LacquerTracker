@@ -8,7 +8,6 @@ var sanitizer = require('sanitizer');
 var simple_recaptcha = require('simple-recaptcha');
 var nodemailer = require('nodemailer');
 
-
 //expose this function to our app using modeule.exports
 module.exports = function(passport) {
 
