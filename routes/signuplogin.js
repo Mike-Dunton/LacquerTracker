@@ -57,6 +57,7 @@ app.post('/signup', function(req, res) {
                                 //save the user
                                 newUser.save(function(err) {
                                     if (err) {
+                                        console.log("err: ", err);
                                         res.render('account/signup.ejs', {title: 'Signup - Lacquer Tracker', message: 'Error saving account. Please try again.', email:req.body.email, username:req.body.username});
                                     } else {
                                         //send validation e-mail

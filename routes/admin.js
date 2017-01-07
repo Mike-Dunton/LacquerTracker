@@ -19,9 +19,9 @@ module.exports = function(app, passport) {
 app.get('/admin/users', isLoggedIn, function(req, res) {
     if (req.user.level === "admin") {
         User.find({}).sort('usernumber').exec(function(err, users) {
-            var users = users.map(function(x) {
-                x.creationdate = moment(x.creationdate).tz("America/New_York").format('M-D-YY, h:mm a');
-                return x;
+            var users = users.map(function(currentUser) {
+                currentUser.creationdate = moment(currentUser.creationdate).tz("America/New_York").format('M-D-YY, h:mm a');
+                return currentUser;
             })
             res.render('admin/users.ejs', {title: 'All Users - Lacquer Tracker', allusers: users});
         })
